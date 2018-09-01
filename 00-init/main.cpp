@@ -5,6 +5,9 @@ int main()
 	ari::Device* p_device = new ari::Device();
 	ari::InitParams p{};
 	p_device->Init(p);
-	getchar();
+	while (p_device->Run())
+	{
+		
+	}
 	return 0;
 }
