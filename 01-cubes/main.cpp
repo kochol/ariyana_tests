@@ -4,6 +4,7 @@
 #include "ari/en/World.hpp"
 #include "ari/en/Entity.hpp"
 #include "ari/en/3d/BoxShape.hpp"
+#include "ari/en/3d/Camera.hpp"
 
 class CubesProgram: public ari::IProgram
 {
@@ -24,9 +25,13 @@ public:
 		m_world.AddSystem(&m_ren);
 
 		// Create entities
-		m_world.AddEntity(&m_Box);
-		m_Box.AddChild(new ari::BoxShape);
+		m_world.AddEntity(&m_eBox);
+		m_eBox.AddChild(new ari::BoxShape());
 		
+		// Set up camera
+		m_world.AddEntity(&m_eCamera);
+		//m_camera.
+		m_eCamera.AddChild(&m_camera);
 	}
 
 	bool Update() override
@@ -41,7 +46,9 @@ public:
 
 	ari::RenderSystem	m_ren;
 	ari::World			m_world;
-	ari::Entity			m_Box;
+	ari::Entity			m_eBox;
+	ari::Entity			m_eCamera;
+	ari::Camera			m_camera;
 };
 
 int main()
