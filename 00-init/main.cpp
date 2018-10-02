@@ -1,8 +1,8 @@
-#include <ari/Device.hpp>
+#include <ari/Engine.hpp>
 
 int main()
 {
-	ari::Device* p_device = new ari::Device();
+	ari::Engine* p_device = new ari::Engine();
 	ari::InitParams p{};
 	p_device->Init(p);
 	while (p_device->Run())

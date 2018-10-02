@@ -1,4 +1,4 @@
-#include <ari/Device.hpp>
+#include <ari/Engine.hpp>
 #include "ari/en/3d/RenderSystem.hpp"
 #include "ari/Program.hpp"
 
@@ -37,7 +37,7 @@ public:
 
 int main()
 {
-	ari::Device* p_device = new ari::Device();
+	ari::Engine* p_device = new ari::Engine();
 	ari::InitParams p{};
 	p.Program = new CubesProgram("Cubes");
 	p_device->Init(p);
