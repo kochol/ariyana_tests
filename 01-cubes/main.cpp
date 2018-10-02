@@ -1,6 +1,9 @@
 #include <ari/Engine.hpp>
 #include "ari/en/3d/RenderSystem.hpp"
 #include "ari/Program.hpp"
+#include "ari/en/World.hpp"
+#include "ari/en/Entity.hpp"
+#include "ari/en/3d/BoxShape.hpp"
 
 class CubesProgram: public ari::IProgram
 {
@@ -18,7 +21,12 @@ public:
 	void Init() override
 	{
 		// Init entity system
-		m_pRen = new ari::RenderSystem();
+		m_world.AddSystem(&m_ren);
+
+		// Create entities
+		m_world.AddEntity(&m_Box);
+		m_Box.AddChild(new ari::BoxShape);
+		
 	}
 
 	bool Update() override
@@ -31,8 +39,9 @@ public:
 		return 0;
 	}
 
-	ari::RenderSystem* m_pRen;
-
+	ari::RenderSystem	m_ren;
+	ari::World			m_world;
+	ari::Entity			m_Box;
 };
 
 int main()
