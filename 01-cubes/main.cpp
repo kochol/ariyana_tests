@@ -34,8 +34,9 @@ public:
 		m_eCamera.AddChild(&m_camera);
 	}
 
-	bool Update() override
+	bool Update(uint32_t frame_number, float elasped) override
 	{
+		m_world.Update(elasped);
 		return true;
 	}
 
