@@ -5,6 +5,7 @@
 #include "ari/en/Entity.hpp"
 #include "ari/en/3d/BoxShape.hpp"
 #include "ari/en/3d/Camera.hpp"
+#include "ari/en/3d/SceneSystem.hpp"
 
 class CubesProgram: public ari::IProgram
 {
@@ -23,6 +24,7 @@ public:
 	{
 		// Init entity system
 		m_world.AddSystem(&m_ren);
+		m_world.AddSystem(&m_scene_system);
 
 		// Create entities
 		m_world.AddEntity(&m_eBox);
@@ -30,7 +32,7 @@ public:
 		
 		// Set up camera
 		m_world.AddEntity(&m_eCamera);
-		//m_camera.
+		m_camera.Position.Set(10.0f, 10.0f, 10.0f);
 		m_eCamera.AddChild(&m_camera);
 	}
 
@@ -46,6 +48,7 @@ public:
 	}
 
 	ari::RenderSystem	m_ren;
+	ari::SceneSystem	m_scene_system;
 	ari::World			m_world;
 	ari::Entity			m_eBox;
 	ari::Entity			m_eCamera;
