@@ -22,6 +22,7 @@ public:
 
 	void Init() override
 	{
+		m_world.SetUpdateType(ari::World::UpdateType::Sync);
 		// Init entity system
 		m_world.AddSystem(&m_ren);
 		m_world.AddSystem(&m_scene_system);
@@ -32,7 +33,7 @@ public:
 		
 		// Set up camera
 		m_world.AddEntity(&m_eCamera);
-		m_camera.Position.Set(10.0f, 10.0f, 10.0f);
+		m_camera.Position.Set(3.0f, 3.0f, 3.0f);
 		m_eCamera.AddChild(&m_camera);
 	}
 
