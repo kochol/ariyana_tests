@@ -42,7 +42,7 @@ public:
 
 	void Init() override
 	{
-		m_world.SetUpdateType(ari::World::UpdateType::Sync);
+		//m_world.SetUpdateType(ari::World::UpdateType::Sync);
 		// Init entity system
 		m_world.AddSystem(&m_ren);
 		m_world.AddSystem(&m_scene_system);
