@@ -6,6 +6,7 @@
 #include "ari/en/gui/Window.hpp"
 #include "ari/en/gui/CheckBox.hpp"
 #include "ari/en/gui/Label.hpp"
+#include "ari/en/gui/Dock.hpp"
 
 class GuiProgram: public ari::IProgram
 {
@@ -22,6 +23,8 @@ public:
 		// Init entity system
 		m_world.AddSystem(&m_gui_system);
 		m_world.AddEntity(&m_gui_entity);
+		m_gui_entity.AddChild(&m_dock);
+	//	m_dock.AddChild(&m_dock_child);
 		m_gui_entity.AddChild(&m_window);
 		m_window.AddChild(&m_label);
 		m_window.AddChild(&m_check_box);
@@ -30,6 +33,12 @@ public:
 		m_window.Size.x = m_window.Size.y = 200;
 		m_window.Name = "Test window";
 		m_check_box.Label = "OK";
+		m_dock._root = true;
+		m_dock.Label = "Root Dock";
+		m_dock.Size.x = m_dock.Size.y = 500;	
+		m_label2.Text = "Dock text";
+	//	m_dock_child.AddChild(&m_label2);
+		m_dock_child.Label = "Child Dock";
 	}
 
 	bool Update(uint32_t frame_number, float elasped) override
@@ -48,7 +57,8 @@ public:
 	ari::Entity			m_gui_entity;
 	ari::Window			m_window;
 	ari::CheckBox		m_check_box;
-	ari::Label			m_label;
+	ari::Label			m_label, m_label2;
+	ari::Dock			m_dock, m_dock_child;
 };
 
 int main()
@@ -62,5 +72,6 @@ int main()
 	{
 		
 	}
+	delete p_device;
 	return 0;
 }

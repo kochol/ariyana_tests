@@ -9,5 +9,6 @@ int main()
 	{
 		
 	}
+	delete p_device;
 	return 0;
 }
