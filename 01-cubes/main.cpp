@@ -88,15 +88,14 @@ public:
 
 int main()
 {
-	ari::Engine* p_device = new ari::Engine();
-	ari::InitParams p{};
-	p.Program = new CubesProgram("Cubes");
+	std::unique_ptr<ari::Engine> p_device(new ari::Engine());
+	std::shared_ptr<ari::InitParams> p(new ari::InitParams);
+	p->Program.reset(new CubesProgram("Cubes"));
 	p_device->Init(p);
 
 	while (p_device->Run())
 	{
 		
 	}
-	delete p_device;
 	return 0;
 }

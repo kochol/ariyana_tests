@@ -2,13 +2,13 @@
 
 int main()
 {
-	ari::Engine* p_device = new ari::Engine();
-	ari::InitParams p{};
+	std::unique_ptr<ari::Engine> p_device(new ari::Engine());
+	std::shared_ptr<ari::InitParams> p(new ari::InitParams);
 	p_device->Init(p);
+
 	while (p_device->Run())
 	{
-		
+
 	}
-	delete p_device;
 	return 0;
 }
