@@ -33,9 +33,7 @@ public:
 		m_window.Size.x = m_window.Size.y = 200;
 		m_window.Name = "Test window";
 		m_check_box.Label = "OK";
-		m_dock._root = true;
 		m_dock.Label = "Root Dock";
-		m_dock.Size.x = m_dock.Size.y = 500;	
 		m_label2.Text = "Dock text";
 	//	m_dock_child.AddChild(&m_label2);
 		m_dock_child.Label = "Child Dock";
