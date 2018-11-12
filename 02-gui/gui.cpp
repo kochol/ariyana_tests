@@ -23,8 +23,6 @@ public:
 		// Init entity system
 		m_world.AddSystem(&m_gui_system);
 		m_world.AddEntity(&m_gui_entity);
-		m_gui_entity.AddChild(&m_dock);
-	//	m_dock.AddChild(&m_dock_child);
 		m_gui_entity.AddChild(&m_window);
 		m_window.AddChild(&m_label);
 		m_window.AddChild(&m_check_box);
@@ -33,10 +31,6 @@ public:
 		m_window.Size.x = m_window.Size.y = 200;
 		m_window.Name = "Test window";
 		m_check_box.Label = "OK";
-		m_dock.Label = "Root Dock";
-		m_label2.Text = "Dock text";
-	//	m_dock_child.AddChild(&m_label2);
-		m_dock_child.Label = "Child Dock";
 	}
 
 	bool Update(uint32_t frame_number, float elasped) override
@@ -56,7 +50,6 @@ public:
 	ari::Window			m_window;
 	ari::CheckBox		m_check_box;
 	ari::Label			m_label, m_label2;
-	ari::Dock			m_dock, m_dock_child;
 };
 
 int main()
